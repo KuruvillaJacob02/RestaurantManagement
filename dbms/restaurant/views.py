@@ -6,7 +6,10 @@ def home(request):
     return render(request,"restaurant/home.html")
 
 def menu(request):
-    return HttpResponse('Menu')
+    return render(request,"restaurant/menu.html")
+
+def tables(request):
+    return render(request,"restaurant/tables.html")
 
 def  orders(request):
-    return HttpResponse('Orders')
+    return render(request,"restaurant/orders.html")

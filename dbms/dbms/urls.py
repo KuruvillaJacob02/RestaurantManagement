@@ -19,7 +19,10 @@ from django.urls import path
 from restaurant import views
 
 urlpatterns = [
+
     path('', views.home),
+    path('admin/', admin.site.urls),
+    path('tables/',views.tables),
     path('menu/', views.menu),
     path('orders/', views.orders),
 ]
