@@ -20,8 +20,8 @@ from restaurant import views
 
 urlpatterns = [
      path('admin/', admin.site.urls),
-    path('', views.home),
-    path('tables/',views.tables),
-    path('menu/', views.menu),
+    path('', views.home, name ="home"),
+    path('tables/<str:pk_test>/',views.tables, name = "tables"),
+    path('menu/', views.menu, name = "menu"),
     path('orders/', views.orders),
 ]
