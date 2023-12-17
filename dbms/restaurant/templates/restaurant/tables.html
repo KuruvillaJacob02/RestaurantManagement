@@ -8,7 +8,7 @@
 		<div class="card card-body">
 			<h5>Tables:</h5>
 			<hr>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Tables</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'update_table' table.id %}">Update Tables</a>
 			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Tables</a>
 
 		</div>
@@ -59,11 +59,12 @@
 					<td>{{order.order_date}}</td>
 					<td>{{order.status}}</td>
 					<td>{{order.quantity}}</td>
-					<td><a class="btn btn-sm btn-info" href="">Update</a></td>
-					<td><a class="btn btn-sm btn-danger" href="">Remove</a></td>
+					<td><a class = "btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+                    <td><a class = "btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
 				</tr>
 				{% endfor %}
 			</table>
+			<a class = "btn btn-sm btn-info" href="{% url 'bill' table.id %}">Generate Bill</a>
 		</div>
 	</div>
 </div>

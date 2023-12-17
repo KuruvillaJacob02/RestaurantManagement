@@ -1,0 +1,66 @@
+{% extends 'restaurant/main.html' %}
+
+{% block content %}
+
+<div class="col">
+    <div class="col-md">
+        <div class="card text-center text-white  mb-3" id="orders-delivered">
+              <div class="card-header">
+                  <h5 class="card-title">Table Number</h5>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">{{table.id}}</h3>
+              </div>
+        </div>
+    </div>
+</div>
+
+        
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Bill</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Item</th>
+							<th>Category</th>
+                            <th>Quantity</th>
+							<th>Price</th>
+						</tr>
+						{% for order in orders %}
+						<tr>
+							<td>{{order.meal.meal_name}}</td>
+							<td>{{order.meal.category}}</td>
+							<td>{{order.quantity}}</td>
+							<td>{{order.item_price}}</td>
+						</tr>
+				{% endfor %}
+					</table>
+					<br>
+					<h5 style="font-weight: bold;">Total Amount:   <span>  {{total_amount}}</span></h5>
+				</div>
+			</div>
+
+		
+		</div>
+        <div class="row">
+			<div class="col-md">
+				<div class="card card-body" style="width: 500px;">
+					<a class = "btn btn-sm btn-danger" href="{% url 'pay' table.id %}">Pay Bill</a>
+                </div>
+            </div>
+        </div>           
+
+
+		<!-- Add this button within your HTML structure -->
+
+
+<!-- Add this script at the end of your HTML file to handle the button click -->
+
+
+{% endblock content %}
+

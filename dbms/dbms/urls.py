@@ -24,4 +24,12 @@ urlpatterns = [
     path('tables/<str:pk_test>/',views.tables, name = "tables"),
     path('menu/', views.menu, name = "menu"),
     path('orders/', views.orders),
+    path('create_order/', views.createOrder, name= "create_order"),
+    path('update_order/<str:pk>', views.updateOrder, name= "update_order"),
+    #path('update_order/<str:pk>', views.updateOrder, name= "update_order"),
+    path('delete_order/<str:pk>', views.deleteOrder, name= "delete_order"),
+    path('update_table/<str:pk>', views.updateTable, name= "update_table"),
+    path('bill/<str:pk_test>/',views.bill, name = "bill"),
+    path('pay/<str:pk_test>/',views.pay, name = "pay"),
+
 ]

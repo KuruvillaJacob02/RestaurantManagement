@@ -1,0 +1,17 @@
+{% extends 'restaurant/main.html' %}
+
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <p>Are you sure you want to pay and delete all orders for Table {{ table.id }}?</p>
+            <form action="{% url 'pay' table.id %}" method="POST">
+                {% csrf_token %}
+                <a href="{% url 'home' %}">Cancel</a>
+                <input class="btn btn-danger" type="submit" value="Confirm">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
