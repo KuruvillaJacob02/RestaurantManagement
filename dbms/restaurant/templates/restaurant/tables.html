@@ -2,6 +2,11 @@
 
 {% block content %}
 
-<h1>Tables</h1>
+<h1>Table List</h1>
+    <ul>
+        {% for table in tables %}
+            <li>{{ table }}</li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}

@@ -7,7 +7,8 @@ def home(request):
     return render(request,"restaurant/home.html")
 
 def menu(request):
-    return render(request,"restaurant/menu.html")
+     menu_items = Menu.objects.all()
+     return render(request, 'restaurant/menu.html', {'menu_items': menu_items})
 
 def tables(request):
     return render(request,"restaurant/tables.html")
