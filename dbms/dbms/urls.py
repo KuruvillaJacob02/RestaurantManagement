@@ -31,5 +31,6 @@ urlpatterns = [
     path('update_table/<str:pk>', views.updateTable, name= "update_table"),
     path('bill/<str:pk_test>/',views.bill, name = "bill"),
     path('pay/<str:pk_test>/',views.pay, name = "pay"),
+    path('transactions/', views.transactions, name = "transactions"),
 
 ]

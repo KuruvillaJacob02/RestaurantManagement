@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.utils import timezone
 from .models import *
 from .forms import OrderForm
 from .forms import TableForm
@@ -77,15 +78,24 @@ def updateTable(request, pk):
 def pay(request, pk_test):
     table = Table.objects.get(id=pk_test)
     orders = table.order_set.all()
-
+    total_amount = sum(order.item_price for order in orders)
     if request.method == "POST":
         # Perform payment-related logic if needed
 
         # Delete all orders associated with the table
         orders.delete()
-
+        transaction = Transaction.objects.create(
+            table = table,
+            payment_date=timezone.now(), 
+            amount=total_amount,
+            status = 'Success',
+        )
         return redirect('home')  # Redirect to home or another appropriate view after payment and deletion
 
     context = {'table': table, 'orders': orders}
     return render(request, "restaurant/pay.html", context)
+
+def transactions(request):
+     transaction = Transaction.objects.all().order_by('-payment_date')
+     return render(request, 'restaurant/transactions.html', {'transaction': transaction})
 

@@ -70,8 +70,7 @@ class Transaction(models.Model):
         ('Failed', 'Failed'),
         ('Refund', 'Refund'),
     ]
-
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    table = models.ForeignKey(Table, on_delete=models.CASCADE, null=True)
+    payment_date = models.DateTimeField(auto_now_add=True, null =True)
     amount = models.DecimalField(max_digits=8, decimal_places=2)
-    payment_method = models.CharField(max_length=50)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
